@@ -1,7 +1,9 @@
 from fastapi import FastAPI
 from model import User
+from database import connect,add_user,all_db_users
 
 app = FastAPI()
+
 
 all_users = []
 
@@ -14,13 +16,16 @@ def read_root():
 # Create User
 @app.post("/users")
 def create_user(user: User):
-    all_users.append(user)
-    return {"message": "User has been created!"}
+    #all_users.append(user)
+    user_id = add_user(user.name,user.email)
+    return {"User id": user_id}
 
 
 # Read User
 @app.get("/users")
 async def users():
+    all_users = all_db_users()
+    print(all_users)
     return {"users": all_users}
 
 
