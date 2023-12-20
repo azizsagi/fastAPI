@@ -1,3 +1,9 @@
+**FAST API to work with MySQL Database**
+
+Connectivity
+CRUD
+etc
+
 **Packages to be Installed**
 
 pip install fastapi <br />
