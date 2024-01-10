@@ -38,3 +38,4 @@ def all_db_users():
     records = cursor.fetchall()
     conn.close()
     return records
+
